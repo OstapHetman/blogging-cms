@@ -73,7 +73,29 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+                <div class="row">
+
+                    @if (Auth::check())
+                        <div class="col-lg-4">
+
+                            <div class="list-group">
+                                <a href="/home" class="list-group-item list-group-item-action">Home</a>
+                                <a href="{{ route('post.create') }}" class="list-group-item list-group-item-action">
+                                    Create new post
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+                                <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+                                <a href="#" class="list-group-item list-group-item-action">Vestibulum at eros</a>
+                            </div>
+    
+                        </div>
+                        <div class="col-lg-8">@yield('content')</div>
+                    @else
+                        <div class="col-12">@yield('content')</div>
+                    @endif
+                </div>
+            </div>
         </main>
     </div>
 </body>
