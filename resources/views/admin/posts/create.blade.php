@@ -1,11 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
+  
+  @if(count($errors) > 0)
+      @foreach ($errors->all() as $err)
+        <div class="alert alert-danger" role="alert">
+          {{ $err }}
+        </div>
+      @endforeach
+  @endif
+
   <div class="card">
     <div class="card-body">
       <h3 class="card-title mb-4">Create New Post</h3>
       {{-- Start Form --}}
-      <form action="{{ route('post.store') }}" method="post">
+      <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
           <label>Title:</label>
