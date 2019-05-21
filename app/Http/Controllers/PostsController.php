@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
+use App\Post;
+use Session;
 
 class PostsController extends Controller
 {
@@ -13,7 +16,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.posts.index')->with('posts', Post::all());
     }
 
     /**
@@ -22,8 +25,17 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('admin.posts.create');
+    {   
+        $categories = Category::all();
+
+        if ($categories->count() == 0) {
+
+            Session::flash('info', 'Add a category before creating a new post.');
+
+            return redirect()->back();
+        }
+
+        return view('admin.posts.create')->with('categories', $categories);
     }
 
     /**
@@ -38,8 +50,26 @@ class PostsController extends Controller
         $this->validate($request, [
             'title' => 'required|max:255',
             'featured' => 'required|image',
-            'content' => 'required'
+            'content' => 'required',
+            'category_id' => 'required'
         ]);
+        
+        $img = $request->featured;
+        $featured_new_name = time().$img->getClientOriginalName();
+
+        $img->move('uploads/posts', $featured_new_name);
+
+        $post = Post::create([
+            'title' => $request->title,
+            'featured' => 'uploads/posts/'.$featured_new_name,
+            'content' => $request->content,
+            'category_id' => $request->category_id,
+            'slug' => str_slug($request->title)
+        ]);
+
+        Session::flash('success', 'Post created successfully.');
+
+        return redirect()->back();
     }
 
     /**
@@ -84,6 +114,11 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+
+        Session::flash('success', 'The post was just trashed.');
+
+        return redirect()->back();
     }
 }

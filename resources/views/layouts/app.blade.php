@@ -87,6 +87,7 @@
                                 </a>
                                 <a href="{{ route('category.create') }}" class="list-group-item list-group-item-action">Create new category</a>
                                 <a href="{{ route('categories') }}" class="list-group-item list-group-item-action">Categories</a>
+                                <a href="{{ route('posts') }}" class="list-group-item list-group-item-action">Posts</a>
                             </div>
     
                         </div>
@@ -107,6 +108,9 @@
     <script>
         @if(Session::has('success'))
             toastr.success("{{ Session::get('success') }}", {timeOut: 2500})
+        @endif
+        @if(Session::has('info'))
+            toastr.info("{{ Session::get('info') }}", {timeOut: 2500})
         @endif
     </script>
 </body>
