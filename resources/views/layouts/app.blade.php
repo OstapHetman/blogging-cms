@@ -88,6 +88,7 @@
                                 <a href="{{ route('category.create') }}" class="list-group-item list-group-item-action">Create new category</a>
                                 <a href="{{ route('categories') }}" class="list-group-item list-group-item-action">Categories</a>
                                 <a href="{{ route('posts') }}" class="list-group-item list-group-item-action">Posts</a>
+                                <a href="{{ route('trashed') }}" class="list-group-item list-group-item-action">Trashed</a>
                             </div>
     
                         </div>
