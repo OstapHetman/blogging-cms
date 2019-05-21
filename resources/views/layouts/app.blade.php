@@ -14,9 +14,10 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -84,6 +85,8 @@
                                 <a href="{{ route('post.create') }}" class="list-group-item list-group-item-action">
                                     Create new post
                                 </a>
+                                <a href="{{ route('category.create') }}" class="list-group-item list-group-item-action">Create new category</a>
+                                <a href="{{ route('categories') }}" class="list-group-item list-group-item-action">Categories</a>
                             </div>
     
                         </div>
