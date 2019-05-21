@@ -30,6 +30,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/post/{id}/delete', 'PostsController@destroy')->name('post.delete');
     Route::get('/post/{id}/edit', 'PostsController@edit')->name('post.edit');
     Route::post('/post/store', 'PostsController@store')->name('post.store');
+    Route::post('/post/{id}/update', 'PostsController@update')->name('post.update');
 
     Route::get('/categories', 'CategoriesController@index')->name('categories');
     Route::get('/category/create', 'CategoriesController@create')->name('category.create');
