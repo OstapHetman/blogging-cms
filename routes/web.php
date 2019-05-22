@@ -39,6 +39,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     // Users
     Route::get('/users', 'UsersController@index')->name('users');
     Route::get('/user/create', 'UsersController@create')->name('user.create');
+    Route::get('/user/{id}/delete', 'UsersController@destroy')->name('user.delete');
     Route::get('/user/profile', 'ProfilesController@index')->name('user.profile');
     Route::post('/user/profile/update', 'ProfilesController@update')->name('user.profile.update');
     Route::get('/user/admin/{id}', 'UsersController@admin')->name('user.admin');
