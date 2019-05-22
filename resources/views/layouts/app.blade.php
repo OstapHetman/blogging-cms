@@ -86,6 +86,7 @@
                                     <a href="{{ route('users') }}" class="list-group-item list-group-item-action">Users</a>
                                     <a href="{{ route('user.create') }}" class="list-group-item list-group-item-action">Add new user</a>
                                 @endif
+                                <a href="{{ route('user.profile') }}" class="list-group-item list-group-item-action">My profile</a>
                                 <a href="{{ route('post.create') }}" class="list-group-item list-group-item-action">
                                     Create new post
                                 </a>

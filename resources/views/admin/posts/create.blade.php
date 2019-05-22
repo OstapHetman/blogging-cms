@@ -19,7 +19,6 @@
             <span class="input-group-text">Featured</span>
           </div>
           <div class="custom-file">
-
             <input type="file" name="featured" class="custom-file-input">
             <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
           </div>
