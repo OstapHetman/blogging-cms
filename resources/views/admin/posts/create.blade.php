@@ -33,6 +33,15 @@
           </select>
         </div>
         <div class="form-group">
+          <label>Select Tags: </label>
+          @foreach ($tags as $tag)
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="tags[]" class="custom-control-input" value="{{ $tag->id }}" id="tag-{{ $tag->tag }}">
+              <label class="custom-control-label" for="tag-{{ $tag->tag }}">{{ $tag->tag }}</label>
+            </div>
+          @endforeach
+        </div>
+        <div class="form-group">
           <label>Content:</label>
           <textarea name="content" rows="5" class="form-control"></textarea>
         </div>
