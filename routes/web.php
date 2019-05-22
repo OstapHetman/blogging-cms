@@ -35,4 +35,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/tag/create', 'TagsController@create')->name('tag.create');
     Route::post('/tag/store', 'TagsController@store')->name('tag.store');
     Route::post('/tag/{id}/update', 'TagsController@update')->name('tag.update');
+
+    // Users
+    Route::get('/users', 'UsersController@index')->name('users');
+    Route::get('/user/create', 'UsersController@create')->name('user.create');
+    Route::post('/user/store', 'UsersController@store')->name('user.store');
 });

@@ -82,6 +82,8 @@
 
                             <div class="list-group">
                                 <a href="{{ route('dashboard') }}" class="list-group-item list-group-item-action">Home</a>
+                                <a href="{{ route('users') }}" class="list-group-item list-group-item-action">Users</a>
+                                <a href="{{ route('user.create') }}" class="list-group-item list-group-item-action">Add new user</a>
                                 <a href="{{ route('post.create') }}" class="list-group-item list-group-item-action">
                                     Create new post
                                 </a>
