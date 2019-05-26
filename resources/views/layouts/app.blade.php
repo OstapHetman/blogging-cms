@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
+    @yield('styles')
 </head>
 <body>
     <div id="app">
@@ -96,6 +97,9 @@
                                 <a href="{{ route('tags') }}" class="list-group-item list-group-item-action">All Tags</a>
                                 <a href="{{ route('posts') }}" class="list-group-item list-group-item-action">All Posts</a>
                                 <a href="{{ route('trashed') }}" class="list-group-item list-group-item-action">All Trashed Posts</a>
+                                @if (Auth::user()->admin)
+                                    <a href="{{ route('settings') }}" class="list-group-item list-group-item-action">Settings</a>
+                                @endif
                             </div>
     
                         </div>
@@ -121,5 +125,8 @@
             toastr.info("{{ Session::get('info') }}", {timeOut: 2500})
         @endif
     </script>
+
+    @yield('scripts')
+
 </body>
 </html>

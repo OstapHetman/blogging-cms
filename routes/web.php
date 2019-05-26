@@ -45,4 +45,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/user/admin/{id}', 'UsersController@admin')->name('user.admin');
     Route::get('/user/not_admin/{id}', 'UsersController@not_admin')->name('user.not_admin');
     Route::post('/user/store', 'UsersController@store')->name('user.store');
+
+    // Settings
+    Route::get('/settings', 'SettingsController@index')->name('settings');
+    Route::post('/settings/update', 'SettingsController@update')->name('settings.update');
 });
