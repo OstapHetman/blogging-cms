@@ -1,10 +1,9 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
+
+// Front End
+Route::get('/', 'FrontEndController@index')->name('index');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
