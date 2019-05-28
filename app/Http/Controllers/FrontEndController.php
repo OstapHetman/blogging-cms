@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Setting;
 use App\Category;
 use App\Post;
+use App\Tag;
 
 class FrontEndController extends Controller
 {
@@ -32,6 +33,7 @@ class FrontEndController extends Controller
             ->with('post', $post)
             ->with('title', $post->title)
             ->with('next', Post::find($next_id))
+            ->with('tags', Tag::all())
             ->with('previous', Post::find($prev_id))
             ->with('categories', Category::take(4)->get())
             ->with('settings', Setting::first());

@@ -143,7 +143,7 @@
                       </div>
                     </a>
                  @endif
-                 
+
               </div>
 
               <div class="comments">
@@ -155,6 +155,8 @@
                           <span class="long-line"></span>
                       </div>
                   </div>
+
+                  @include('includes.disqus')
               </div>
 
               <div class="row">
@@ -180,15 +182,9 @@
                       </div>
 
                       <div class="tags-wrap">
-                          <a href="#" class="w-tags-item">SEO</a>
-                          <a href="#" class="w-tags-item">Advertising</a>
-                          <a href="#" class="w-tags-item">Business</a>
-                          <a href="#" class="w-tags-item">Optimization</a>
-                          <a href="#" class="w-tags-item">Digital Marketing</a>
-                          <a href="#" class="w-tags-item">Social</a>
-                          <a href="#" class="w-tags-item">Keyword</a>
-                          <a href="#" class="w-tags-item">Strategy</a>
-                          <a href="#" class="w-tags-item">Audience</a>
+                          @foreach ($tags as $tag)
+                          <a href="#" class="w-tags-item">{{ $tag->tag }}</a>
+                          @endforeach
                       </div>
                   </div>
               </aside>
