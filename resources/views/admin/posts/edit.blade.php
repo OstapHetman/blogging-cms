@@ -53,7 +53,7 @@
         </div>
         <div class="form-group">
           <label>Content:</label>
-          <textarea name="content" rows="5" class="form-control">{{ $post->content }}</textarea>
+          <textarea name="content" rows="5" id="content" class="form-control">{{ $post->content }}</textarea>
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-success btn-lg d-block mx-auto">Update</button>
@@ -62,4 +62,18 @@
       {{-- End Form --}}
     </div>
   </div>
+@endsection
+
+@section('styles')
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+@endsection
+
+@section('scripts') 
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js" defer></script>
+
+  <script>
+     $(document).ready(function() {
+      $('#content').summernote();
+    });
+  </script>
 @endsection
