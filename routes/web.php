@@ -8,6 +8,17 @@ Route::get('/post/{slug}', 'FrontEndController@singlePost')->name('post.single')
 Route::get('/category/{id}', 'FrontEndController@category')->name('category.single');
 Route::get('/tag/{id}', 'FrontEndController@tag')->name('tag.single');
 
+Route::get('/results', function() {
+    $posts = \App\Post::where('title', 'like', '%' . request('query') . '%')->get();
+
+    return view('results')
+        ->with('posts', $posts)
+        ->with('title', 'Search results: ' . request('query'))
+        ->with('categories', \App\Category::take(4)->get())
+        ->with('query', request('query'))
+        ->with('settings', \App\Setting::first());
+});
+
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
