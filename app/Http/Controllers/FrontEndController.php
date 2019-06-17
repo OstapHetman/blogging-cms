@@ -38,4 +38,15 @@ class FrontEndController extends Controller
             ->with('categories', Category::take(4)->get())
             ->with('settings', Setting::first());
     }
+
+    public function category($id)
+    {
+        $cat = Category::find($id);
+
+        return view('category')
+            ->with('category', $cat)
+            ->with('title', $cat->name)
+            ->with('categories', Category::take(4)->get())
+            ->with('settings', Setting::first());
+    }
 }
